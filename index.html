@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humvee</title>
+  <title>Humvee1</title>
   <style>
     /* Styl dla model-viewer z proporcjami 16:9 */
     model-viewer {
@@ -38,7 +38,7 @@
 
 
 
-<model-viewer id="orbit-demo" disable-tap interpolation-decay="200" alt="Humvee" src="assets/Humvee/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/Humvee/Humvee1.webp" shadow-intensity="2"   skybox-image="assets/surface.jpg" skybox-height="2m" xr-environment
+<model-viewer id="orbit-demo" disable-tap interpolation-decay="200" camera-controls alt="Humvee" src="assets/Humvee/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/Humvee/Humvee1.webp" shadow-intensity="2"   skybox-image="assets/surface.jpg" skybox-height="2m" xr-environment
 >
 <!-- camera-controls touch-action="pan-y" -->
 
@@ -59,7 +59,9 @@
   const modelViewer = document.querySelector('#orbit-demo');
   const orbitCycle = [
     '45deg 55deg 4m',
-    '-60deg 110deg 2m',
+	'20deg 220deg 5m',
+    '0deg 110deg 5m',
+	
     modelViewer.cameraOrbit
   ];
 
