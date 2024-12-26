@@ -38,9 +38,9 @@
 
 
 
-<model-viewer id="orbit-demo" disable-tap interpolation-decay="200" camera-controls alt="Humvee" src="assets/models/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/images/Humvee1.webp" shadow-intensity="2"   skybox-image="assets/surface.jpg" skybox-height="2m" xr-environment
+<model-viewer id="orbit-demo" disable-tap interpolation-decay="200" camera-controls alt="Humvee" src="assets/models/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/images/Humvee1.webp" shadow-intensity="2"   skybox-image="assets/surface.jpg"  xr-environment
 >
-<!-- camera-controls touch-action="pan-y" -->
+<!-- skybox-height="2m" camera-controls touch-action="pan-y" -->
 
   <effect-composer>   <!-- tutaj dodac efekty -->
     <!-- 
@@ -63,8 +63,8 @@
 
   <div class="slider">
     <div class="slides">
-      <button class="slide selected" onclick="switchSrc(this, 'Chair')" style="background-image: url('../../assets/images/Humvee1.webp');">
-      </button><button class="slide" onclick="switchSrc(this, 'Mixer')" style="background-image: url('../../assets/images/stryker.webp');"> 
+      <button class="slide selected" onclick="switchSrc(this, 'Chair')" style="background-image: url('assets/images/Humvee1.webp');">
+      </button><button class="slide" onclick="switchSrc(this, 'Mixer')" style="background-image: url('assets/images/stryker.webp');"> 
     </button></div>
   </div>
 </model-viewer>
@@ -99,7 +99,7 @@
   }
 
   #ar-button {
-    background-image: url(../../assets/ic_view_in_ar_new_googblue_48dp.png);
+    background-image: url(assets/surface.jpg);
     background-repeat: no-repeat;
     background-size: 20px 20px;
     background-position: 12px 50%;
