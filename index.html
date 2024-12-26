@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humvee332</title>
+  <title>Humvee332312</title>
   <style>
     /* Styl dla model-viewer z proporcjami 16:9 */
     model-viewer {
@@ -56,21 +56,6 @@
     <pixelate-effect granularity="5" blend-mode="skip"></pixelate-effect>
     <color-grade-effect blend-mode="default"></color-grade-effect>
   </effect-composer> <!-- EFEKTY -->
-
-
- <button slot="ar-button" id="ar-button"> <!-- WebXR -->
-    View in your space
-  </button>
-
-<div id="ar-prompt">
-    <img src="../../assets/xxx.jpg">
-  </div>
-
-  <button id="ar-failure">
-    AR is not tracking!
-  </button>
-
-  <div class="slider">
      <div class="controls"> <!-- EFEKTY -->
     <label for="outline">Outline Effect</label>
     <input type="checkbox" id="outline">
@@ -87,6 +72,20 @@
     <label for="colorgrade">Color Grade Effect</label>
     <input type="checkbox" id="colorgrade" checked>
   </div>  <!-- EFEKTY -->
+
+ <button slot="ar-button" id="ar-button"> <!-- WebXR -->
+    View in your space
+  </button>
+
+<div id="ar-prompt">
+    <img src="../../assets/xxx.jpg">
+  </div>
+
+  <button id="ar-failure">
+    AR is not tracking!
+  </button>
+
+  <div class="slider">
     <div class="slides">
       <button class="slide selected" onclick="switchSrc(this, 'Humvee')" style="background-image: url('../../assets/models/Humvee.webp');">
       </button><button class="slide" onclick="switchSrc(this, 'Stryker')" style="background-image: url('../../assets/models/Stryker.webp');"> 
@@ -114,17 +113,18 @@
     // Keep slider interactions from affecting the XR scene.
     ev.preventDefault();
   }); <!-- WebXR -->
+  }
   
-    const effectsViewer = document.querySelector("model-viewer#effectsViewer"); <!-- EFEKTY -->
+</script> <!-- WebXR -->
+<script type="module"><!-- EFEKTY -->
+  const effectsViewer = document.querySelector("model-viewer#effectsViewer");
   const effects = effectsViewer.querySelector("effect-composer").children;
   const inputs = effectsViewer.querySelectorAll("input");
 
   for (let i = 0; i < effects.length; i++) {
-    inputs[i].addEventListener('change', (e) => effects[i].blendMode = e.target.checked ? 'default' : 'skip'); <!-- EFEKTY -->
+    inputs[i].addEventListener('change', (e) => effects[i].blendMode = e.target.checked ? 'default' : 'skip');
   }
-  
-</script> <!-- WebXR -->
-
+</script><!-- EFEKTY -->
 <style> <!-- WebXR -->
   /* This keeps child nodes hidden while the element loads */
   :not(:defined) > * {
