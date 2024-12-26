@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humvee123</title>
+  <title>Humvee</title>
   <style>
     /* Styl dla model-viewer z proporcjami 16:9 */
     model-viewer {
@@ -40,32 +40,8 @@
 
 <model-viewer disable-tap  camera-controls shadow-intensity="2"   skybox-image="../../assets/surface.jpg" skybox-height="1.5m" max-camera-orbit="auto 90deg auto" alt="Humvee" src="../../assets/models/Humvee.glb" ar environment-image="../../assets/hdr.hdr" poster="../../assets/LOADING.png" xr-environment>
 
- <effect-composer>
-    <bloom-effect></bloom-effect>
-    <color-grade-effect></color-grade-effect>
-  </effect-composer>
-  <div class="controls">
-    <label for="colorgrading">Color Grading</label>
-    <input type="checkbox" id="colorgrading" checked>
-    <label for="tonemapping">Tonemapping:</label>
-    <select id="tonemapping">
-        <option value="aces_filmic">Aces Filmic</option>
-        <option value="reinhard">Reinhard</option>
-        <option value="reinhard2">Reinhard2</option>
-        <option value="reinhard2_adaptive">Reinhard2 Adaptive</option>
-        <option value="optimized_cineon">Optimized Cineon</option>
-    </select>
-  </div>
-  
-<script type="module">
-const colorViewer = document.querySelector("model-viewer#colorViewer");
-const colorGradeEffect = colorViewer.querySelector('color-grade-effect');
-const colorGrading = colorViewer.querySelector('#colorgrading');
-const tonemapping = colorViewer.querySelector('#tonemapping');
 
-colorGrading.addEventListener('change', (e) => colorGradeEffect.blendMode = e.target.checked ? 'default' : 'skip');
-tonemapping.addEventListener('input', (e) => colorGradeEffect.tonemapping = e.target.value);
-</script>
+
 <!--  id="orbit-demo"  interpolation-decay="200" skybox-height="2m" camera-controls touch-action="pan-y"  -->
 
 <!--
