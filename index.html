@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humvee332312</title>
+  <title>Humvee</title>
   <style>
     /* Styl dla model-viewer z proporcjami 16:9 */
     model-viewer {
       width: 100vw; /* 100% szerokości okna */
 	  height: 100vh; /* 100% wysokości okna przeglądarki */
-      aspect-ratio: 16 / 9; /* Proporcje szerokości do wysokości */
+     /* aspect-ratio: 16 / 9; /* Proporcje szerokości do wysokości */ */
      /* margin: 0; */
      /* padding: 0; */
       display: block;
     }
 
-   <!-- /* Usuń marginesy i przewijanie strony */
+   /*<!-- /* Usuń marginesy i przewijanie strony */
     body, html {
       margin: 0;
       padding: 0;
       overflow: hidden;
-    }-->
+    }-->*/
   </style>
 </head>
 <body>
@@ -38,7 +38,7 @@
 
 
 
-<model-viewer id="orbit-demo" disable-tap interpolation-decay="200" camera-controls alt="Humvee" src="../../assets/models/Humvee.glb" ar environment-image="../../assets/hdr.hdr" poster="../../assets/LOADING.png" shadow-intensity="2"   skybox-image="../../assets/surface.jpg"  xr-environment
+<model-viewer id="orbit-demo" id="effectsViewer" disable-tap interpolation-decay="200" camera-controls alt="Humvee" src="../../assets/models/Humvee.glb" ar environment-image="../../assets/hdr.hdr" poster="../../assets/LOADING.png" shadow-intensity="2"   skybox-image="../../assets/surface.jpg"  xr-environment
 >
 <!-- skybox-height="2m" camera-controls touch-action="pan-y" -->
 
@@ -48,7 +48,7 @@
 	<bloom-effect></bloom-effect>
     <color-grade-effect></color-grade-effect>
 	<ssao-effect></ssao-effect>-->
-	<outline-effect color="blue" blend-mode="skip"></outline-effect>
+	<!-- <outline-effect color="blue" blend-mode="skip"></outline-effect> -->
     <ssao-effect blend-mode="skip"></ssao-effect>
     <glitch-effect blend-mode="skip"></glitch-effect>
     <smaa-effect blend-mode="skip"></smaa-effect>
@@ -88,9 +88,9 @@
   <div class="slider">
     <div class="slides">
       <button class="slide selected" onclick="switchSrc(this, 'Humvee')" style="background-image: url('../../assets/models/Humvee.webp');">
-      </button><button class="slide" onclick="switchSrc(this, 'Stryker')" style="background-image: url('../../assets/models/Stryker.webp');"> 
-    </button></div>
-  </div> <!-- WebXR -->
+      </button><button class="slide" onclick="switchSrc(this, 'Stryker')" style="background-image: url('../../assets/models/Stryker.webp');"> </button>
+	  </div> <!-- WebXR -->
+
 
 </model-viewer>
 
@@ -98,7 +98,7 @@
 
 
 <script type="module"> <!-- WebXR -->
-  const modelViewer = document.querySelector("model-viewer"); <!-- WebXR -->
+  const modelViewer = document.querySelector("model-viewer"); // WebXR
 
   window.switchSrc = (element, name) => {
     const base = "../../assets/models/" + name;
@@ -112,8 +112,8 @@
   document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
     // Keep slider interactions from affecting the XR scene.
     ev.preventDefault();
-  }); <!-- WebXR -->
-  }
+  }); // WebXR
+  
   
 </script> <!-- WebXR -->
 <script type="module"><!-- EFEKTY -->
@@ -125,7 +125,7 @@
     inputs[i].addEventListener('change', (e) => effects[i].blendMode = e.target.checked ? 'default' : 'skip');
   }
 </script><!-- EFEKTY -->
-<style> <!-- WebXR -->
+<style> /*<!-- WebXR -->*/
   /* This keeps child nodes hidden while the element loads */
   :not(:defined) > * {
     display: none;
@@ -137,7 +137,7 @@
   }
 
   #ar-button {
-    background-image: url(../../assets/backgroundAR.png);
+    background-image: url('assets/backgroundAR.png');
     background-repeat: no-repeat;
     background-size: 20px 20px;
     background-position: 12px 50%;
@@ -250,7 +250,7 @@
     outline: 1px solid #4285f4;
   }
 
-</style> <!-- WebXR -->
+</style> /*<!-- WebXR -->*/
 
 
 
