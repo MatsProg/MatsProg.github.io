@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humvee123</title>
+  <title>Humvee</title>
   <style>
     /* Styl dla model-viewer z proporcjami 16:9 */
     model-viewer {
@@ -26,13 +26,13 @@
 <body>
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"></script> <!-- EFEKTY -->
-<script type="importmap">
+<script type="importmap"><!-- EFEKTY -->
 {
   "imports": {
     "three": "https://cdn.jsdelivr.net/npm/three@^0.170.0/build/three.module.min.js"
   }
 }
-</script>
+</script><!-- EFEKTY -->
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>   <!-- EFEKTY -->
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script> <!-- EFEKTY -->
 
@@ -56,22 +56,7 @@
     <pixelate-effect granularity="5" blend-mode="skip"></pixelate-effect>
     <color-grade-effect blend-mode="default"></color-grade-effect>
   </effect-composer> <!-- EFEKTY -->
- <div class="controls"> <!-- EFEKTY -->
-    <label for="outline">Outline Effect</label>
-    <input type="checkbox" id="outline">
-    <label for="ssao">SSAO Effect</label>
-    <input type="checkbox" id="ssao">
-    <label for="glitch">Glitch Effect</label>
-    <input type="checkbox" id="glitch">
-    <label for="smaa">SMAA Effect</label>
-    <input type="checkbox" id="smaa">
-    <label for="bloom">Bloom Effect</label>
-    <input type="checkbox" id="bloom">
-    <label for="pixelate">Pixelate Effect</label>
-    <input type="checkbox" id="pixelate">
-    <label for="colorgrade">Color Grade Effect</label>
-    <input type="checkbox" id="colorgrade" checked>
-  </div>  <!-- EFEKTY -->
+
 
  <button slot="ar-button" id="ar-button"> <!-- WebXR -->
     View in your space
@@ -91,21 +76,29 @@
       </button><button class="slide" onclick="switchSrc(this, 'Stryker')" style="background-image: url('../../assets/models/Stryker.webp');"> 
     </button></div>
   </div> <!-- WebXR -->
+   <div class="controls"> <!-- EFEKTY -->
+    <label for="outline">Outline Effect</label>
+    <input type="checkbox" id="outline">
+    <label for="ssao">SSAO Effect</label>
+    <input type="checkbox" id="ssao">
+    <label for="glitch">Glitch Effect</label>
+    <input type="checkbox" id="glitch">
+    <label for="smaa">SMAA Effect</label>
+    <input type="checkbox" id="smaa">
+    <label for="bloom">Bloom Effect</label>
+    <input type="checkbox" id="bloom">
+    <label for="pixelate">Pixelate Effect</label>
+    <input type="checkbox" id="pixelate">
+    <label for="colorgrade">Color Grade Effect</label>
+    <input type="checkbox" id="colorgrade" checked>
+  </div>  <!-- EFEKTY -->
 </model-viewer>
 
-<script type="module"> <!-- EFEKTY -->
-  const effectsViewer = document.querySelector("model-viewer#effectsViewer");
-  const effects = effectsViewer.querySelector("effect-composer").children;
-  const inputs = effectsViewer.querySelectorAll("input");
 
-  for (let i = 0; i < effects.length; i++) {
-    inputs[i].addEventListener('change', (e) => effects[i].blendMode = e.target.checked ? 'default' : 'skip');
-  }
-</script> <!-- EFEKTY -->
 
 
 <script type="module"> <!-- WebXR -->
-  const modelViewer = document.querySelector("model-viewer");
+  const modelViewer = document.querySelector("model-viewer"); <!-- WebXR -->
 
   window.switchSrc = (element, name) => {
     const base = "../../assets/models/" + name;
@@ -119,7 +112,16 @@
   document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
     // Keep slider interactions from affecting the XR scene.
     ev.preventDefault();
-  });
+  }); <!-- WebXR -->
+  
+    const effectsViewer = document.querySelector("model-viewer#effectsViewer"); <!-- EFEKTY -->
+  const effects = effectsViewer.querySelector("effect-composer").children;
+  const inputs = effectsViewer.querySelectorAll("input");
+
+  for (let i = 0; i < effects.length; i++) {
+    inputs[i].addEventListener('change', (e) => effects[i].blendMode = e.target.checked ? 'default' : 'skip'); <!-- EFEKTY -->
+  }
+  
 </script> <!-- WebXR -->
 
 <style> <!-- WebXR -->
