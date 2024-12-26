@@ -29,10 +29,35 @@
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
 <!-- Use it like any other HTML element -->
-<model-viewer alt="Humvee" src="assets/Humvee/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/Humvee/Humvee1.webp" shadow-intensity="2" camera-controls touch-action="pan-y"  skybox-image="assets/surface.jpg" skybox-height="2m" xr-environment
-></model-viewer> <!-- style="height: 100vw; width: 100vw;" -->
+<model-viewer id="effectsViewer" alt="Humvee" src="assets/Humvee/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/Humvee/Humvee1.webp" shadow-intensity="2" camera-controls touch-action="pan-y"  skybox-image="assets/surface.jpg" skybox-height="2m" xr-environment
+>
+<effect-composer render-mode="quality">
+<ssao-effect blend-mode="skip"></ssao-effect>
+<bloom-effect blend-mode="skip"></bloom-effect>
+<color-grade-effect blend-mode="default"></color-grade-effect>
+ <div class="controls">
+    <label for="ssao">SSAO Effect</label>
+    <input type="checkbox" id="ssao">
+    <label for="bloom">Bloom Effect</label>
+    <input type="checkbox" id="bloom">
+    <label for="colorgrade">Color Grade Effect</label>
+    <input type="checkbox" id="colorgrade" checked>
+  </div>
 
 
+
+
+</model-viewer> <!-- style="height: 100vw; width: 100vw;" -->
+
+<script type="module">
+  const effectsViewer = document.querySelector("model-viewer#effectsViewer");
+  const effects = effectsViewer.querySelector("effect-composer").children;
+  const inputs = effectsViewer.querySelectorAll("input");
+
+  for (let i = 0; i < effects.length; i++) {
+    inputs[i].addEventListener('change', (e) => effects[i].blendMode = e.target.checked ? 'default' : 'skip');
+  }
+</script>
 
 
 </body>
