@@ -16,22 +16,7 @@
 ></model-viewer> <!-- style="height: 100vw; width: 100vw;" -->
 
 
-<script>
-    // Funkcja ustawiająca proporcje
-    function setAspectRatio() {
-      const viewer = document.getElementById('viewer');
-      const aspectRatio = 16 / 9; // Proporcje 16:9
-      const width = window.innerWidth;
-      const height = width / aspectRatio;
-      viewer.style.height = `${height}px`;
-    }
 
-    // Ustaw proporcje przy ładowaniu strony
-    setAspectRatio();
-
-    // Ustaw proporcje przy zmianie rozmiaru okna
-    window.addEventListener('resize', setAspectRatio);
-  </script>
 
 </body>
 </html>
