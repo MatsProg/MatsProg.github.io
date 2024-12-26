@@ -33,16 +33,16 @@
   }
 }
 </script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>
-  
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>  
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script>
 
 
 
-<model-viewer id="effectsViewer" alt="Humvee" src="assets/Humvee/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/Humvee/Humvee1.webp" shadow-intensity="2" camera-controls touch-action="pan-y"  skybox-image="assets/surface.jpg" skybox-height="2m" xr-environment
+<model-viewer id="Humvee" interpolation-decay="200" alt="Humvee" src="assets/Humvee/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/Humvee/Humvee1.webp" shadow-intensity="2" camera-controls touch-action="pan-y"  skybox-image="assets/surface.jpg" skybox-height="2m" xr-environment
 >
-  <effect-composer>
-    <!--  <bloom-effect></bloom-effect>
+  <effect-composer>   <!-- tutaj dodac efekty -->
+    <!-- 
+	<bloom-effect></bloom-effect>
     <color-grade-effect></color-grade-effect>
 	<ssao-effect></ssao-effect>-->
   </effect-composer>
@@ -52,7 +52,22 @@
 
 </model-viewer> <!-- style="height: 100vw; width: 100vw;" -->
 
+<script>
+(() => {
+  const modelViewer = document.querySelector('#orbit-demo');
+  const orbitCycle = [
+    '45deg 55deg 4m',
+    '-60deg 110deg 2m',
+    modelViewer.cameraOrbit
+  ];
 
+  setInterval(() => {
+    const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+    modelViewer.cameraOrbit =
+        orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+  }, 3000);
+})();
+</script>
 
 </body>
 </html>
