@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humvee2</title>
+  <title>Humvee23</title>
   <style>
     /* Styl dla model-viewer z proporcjami 16:9 */
     model-viewer {
@@ -38,7 +38,7 @@
 
 
 
-<model-viewer id="orbit-demo" disable-tap interpolation-decay="200" camera-controls alt="Humvee" src="assets/models/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/images/Humvee1.webp" shadow-intensity="2"   skybox-image="assets/surface.jpg"  xr-environment
+<model-viewer id="orbit-demo" disable-tap interpolation-decay="200" camera-controls alt="Humvee" src="assets/models/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/models/Humvee1.webp" shadow-intensity="2"   skybox-image="assets/surface.jpg"  xr-environment
 >
 <!-- skybox-height="2m" camera-controls touch-action="pan-y" -->
 
@@ -53,9 +53,7 @@
     View in your space
   </button>
 
-  <div id="ar-prompt">
-    <img src="../../assets/hand.png">
-  </div>
+
 
   <button id="ar-failure">
     AR is not tracking!
@@ -63,8 +61,8 @@
 
   <div class="slider">
     <div class="slides">
-      <button class="slide selected" onclick="switchSrc(this, 'Chair')" style="background-image: url('assets/images/Humvee1.webp');">
-      </button><button class="slide" onclick="switchSrc(this, 'Mixer')" style="background-image: url('assets/images/stryker.webp');"> 
+      <button class="slide selected" onclick="switchSrc(this, 'Chair')" style="background-image: url('assets/models/Humvee1.webp');">
+      </button><button class="slide" onclick="switchSrc(this, 'Mixer')" style="background-image: url('assets/models/stryker.webp');"> 
     </button></div>
   </div>
 </model-viewer>
