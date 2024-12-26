@@ -1,7 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Aspect Ratio</title>
+  <style>
+    model-viewer {
+      width: 100vw; /* 100% szerokości okna */
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
 
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body>
 
@@ -11,6 +27,24 @@
 <!-- Use it like any other HTML element -->
 <model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" src="assets/Humvee/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/Humvee/Humvee1.webp" shadow-intensity="2" camera-controls touch-action="pan-y" style="height: 100vw; width: 100vw;" skybox-image="assets/surface.jpg" skybox-height="2m" xr-environment
 ></model-viewer>
+
+
+<script>
+    // Funkcja ustawiająca proporcje
+    function setAspectRatio() {
+      const viewer = document.getElementById('viewer');
+      const aspectRatio = 16 / 9; // Proporcje 16:9
+      const width = window.innerWidth;
+      const height = width / aspectRatio;
+      viewer.style.height = `${height}px`;
+    }
+
+    // Ustaw proporcje przy ładowaniu strony
+    setAspectRatio();
+
+    // Ustaw proporcje przy zmianie rozmiaru okna
+    window.addEventListener('resize', setAspectRatio);
+  </script>
 
 </body>
 </html>
