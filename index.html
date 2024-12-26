@@ -3,8 +3,24 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Aspect Ratio</title>
+  <title>Humvee</title>
+  <style>
+    /* Styl dla model-viewer z proporcjami 16:9 */
+    model-viewer {
+      width: 100vw; /* 100% szerokości okna */
+      aspect-ratio: 16 / 9; /* Proporcje szerokości do wysokości */
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
 
+    /* Usuń marginesy i przewijanie strony */
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body>
 
