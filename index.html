@@ -24,9 +24,8 @@
   </style>
 </head>
 <body>
-
-<!-- ważne -->
-
+<!--<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script> -->
+<script async src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"></script>
 <script type="importmap">
 {
   "imports": {
@@ -35,9 +34,11 @@
 }
 </script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>
+  
 <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script>
-<!--<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script> -->
-<!-- Use it like any other HTML element -->
+
+
+
 <model-viewer id="effectsViewer" alt="Humvee" src="assets/Humvee/Humvee.glb" ar environment-image="assets/hdr.hdr" poster="assets/Humvee/Humvee1.webp" shadow-intensity="2" camera-controls touch-action="pan-y"  skybox-image="assets/surface.jpg" skybox-height="2m" xr-environment
 >
   <effect-composer>
