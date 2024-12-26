@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humvee1123</title>
+  <title>Humvee23</title>
   <style>
     /* Styl dla model-viewer z proporcjami 16:9 */
     model-viewer {
@@ -38,7 +38,7 @@
 
 
 
-<model-viewer id="orbit-demo" id="effectsViewer" disable-tap interpolation-decay="200" camera-controls alt="Humvee" src="../../assets/models/Humvee.glb" ar environment-image="../../assets/hdr.hdr" poster="../../assets/LOADING.png" shadow-intensity="2"  skybox-height="2m" skybox-image="../../assets/surface.jpg"  xr-environment
+<model-viewer id="orbit-demo" id="effectsViewer" disable-tap interpolation-decay="200" camera-controls alt="Humvee" src="../../assets/models/Humvee.glb" ar environment-image="../../assets/hdr.hdr" poster="../../assets/LOADING.png" shadow-intensity="2"   skybox-image="../../assets/surface.jpg"  xr-environment
 >
 <!-- skybox-height="2m" camera-controls touch-action="pan-y" -->
 
@@ -58,22 +58,8 @@
     <pixelate-effect granularity="5" blend-mode="skip"></pixelate-effect>
     <color-grade-effect blend-mode="default"></color-grade-effect>
   </effect-composer> <!-- EFEKTY -->
-     <div class="controls">
-    <label for="outline">Outline Effect</label>
-    <input type="checkbox" id="outline">
-    <label for="ssao">SSAO Effect</label>
-    <input type="checkbox" id="ssao">
-    <label for="glitch">Glitch Effect</label>
-    <input type="checkbox" id="glitch">
-    <label for="smaa">SMAA Effect</label>
-    <input type="checkbox" id="smaa">
-    <label for="bloom">Bloom Effect</label>
-    <input type="checkbox" id="bloom">
-    <label for="pixelate">Pixelate Effect</label>
-    <input type="checkbox" id="pixelate">
-    <label for="colorgrade">Color Grade Effect</label>
-    <input type="checkbox" id="colorgrade" checked>
-  </div>
+  
+
 
  <button slot="ar-button" id="ar-button"> 
     View in your space
@@ -93,7 +79,22 @@
       </button><button class="slide" onclick="switchSrc(this, 'Stryker')" style="background-image: url('../../assets/models/Stryker.webp');"> </button>
 	  </div> 
 
-
+     <div class="controls">
+    <label for="outline">Outline Effect</label>
+    <input type="checkbox" id="outline">
+    <label for="ssao">SSAO Effect</label>
+    <input type="checkbox" id="ssao">
+    <label for="glitch">Glitch Effect</label>
+    <input type="checkbox" id="glitch">
+    <label for="smaa">SMAA Effect</label>
+    <input type="checkbox" id="smaa">
+    <label for="bloom">Bloom Effect</label>
+    <input type="checkbox" id="bloom">
+    <label for="pixelate">Pixelate Effect</label>
+    <input type="checkbox" id="pixelate">
+    <label for="colorgrade">Color Grade Effect</label>
+    <input type="checkbox" id="colorgrade" checked>
+  </div>
 </model-viewer>
 <script type="module">
   const effectsViewer = document.querySelector("model-viewer#effectsViewer");
