@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humvee2</title>
+  <title>Humvee</title>
   <style>
     /* Styl dla model-viewer z proporcjami 16:9 */
     model-viewer {
@@ -25,16 +25,16 @@
 </head>
 <body>
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-<script async src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"></script> <!-- EFEKTY -->
-<script type="importmap"><!-- EFEKTY -->
+<script async src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"></script> 
+<script type="importmap">
 {
   "imports": {
     "three": "https://cdn.jsdelivr.net/npm/three@^0.170.0/build/three.module.min.js"
   }
 }
-</script><!-- EFEKTY -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>   <!-- EFEKTY -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script> <!-- EFEKTY -->
+</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>  
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script> 
 
 
 
@@ -58,7 +58,7 @@
   </effect-composer> <!-- EFEKTY -->
      
 
- <button slot="ar-button" id="ar-button"> <!-- WebXR -->
+ <button slot="ar-button" id="ar-button"> 
     View in your space
   </button>
 
@@ -74,7 +74,7 @@
     <div class="slides">
       <button class="slide selected" onclick="switchSrc(this, 'Humvee')" style="background-image: url('../../assets/models/Humvee.webp');">
       </button><button class="slide" onclick="switchSrc(this, 'Stryker')" style="background-image: url('../../assets/models/Stryker.webp');"> </button>
-	  </div> <!-- WebXR -->
+	  </div> 
 
 
 </model-viewer>
@@ -82,7 +82,7 @@
 
 
 
-<script type="module"> <!-- WebXR -->
+<script type="module"> 
   const modelViewer = document.querySelector("model-viewer"); // WebXR
 
   window.switchSrc = (element, name) => {
@@ -97,12 +97,12 @@
   document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
     // Keep slider interactions from affecting the XR scene.
     ev.preventDefault();
-  }); // WebXR
+  }); 
   
   
-</script> <!-- WebXR -->
+</script> 
 
-<style> /*<!-- WebXR -->*/
+<style> 
   /* This keeps child nodes hidden while the element loads */
   :not(:defined) > * {
     display: none;
@@ -227,7 +227,7 @@
     outline: 1px solid #4285f4;
   }
 
-</style> /*<!-- WebXR -->*/
+</style> 
 
 
 
