@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Humvee123</title>
+  <title>Humvee</title>
   <style>
     /* Styl dla model-viewer z proporcjami 16:9 */
     model-viewer {
@@ -38,9 +38,9 @@
 
 
 
-<model-viewer id="effectsViewer" disable-tap interpolation-decay="200" camera-controls alt="Humvee" src="../../assets/models/Humvee.glb" ar environment-image="../../assets/hdr.hdr" poster="../../assets/LOADING.png" shadow-intensity="2"   skybox-image="../../assets/surface.jpg"  xr-environment
->
-<!--  id="orbit-demo"  skybox-height="2m" camera-controls touch-action="pan-y"  -->
+<model-viewer disable-tap  camera-controls alt="Humvee" src="../../assets/models/Humvee.glb" ar environment-image="../../assets/hdr.hdr" poster="../../assets/LOADING.png" shadow-intensity="2"   skybox-image="../../assets/surface.jpg"  xr-environment>
+
+<!--  id="orbit-demo"  interpolation-decay="200" skybox-height="2m" camera-controls touch-action="pan-y"  -->
 
 <!--
   <effect-composer>    tutaj dodac efekty --> 
@@ -51,18 +51,13 @@
 	
   </effect-composer>   
   -->
-  <effect-composer render-mode="quality">
-	<bloom-effect></bloom-effect>
-    <color-grade-effect></color-grade-effect>
-	<ssao-effect></ssao-effect>
-  </effect-composer>
   
  <button slot="ar-button" id="ar-button"> 
     View in your space
   </button>
 
 <div id="ar-prompt">
-    <img src="../../assets/xxx.jpg">
+    <img src="../../assets/backgroundAR.png">
   </div>
 
   <button id="ar-failure">
@@ -77,7 +72,7 @@
 </model-viewer>
 
 <script type="module"> 
-  const modelViewer = document.querySelector("model-viewer"); // WebXR
+  const modelViewer = document.querySelector("model-viewer");
 
   window.switchSrc = (element, name) => {
     const base = "../../assets/models/" + name;
