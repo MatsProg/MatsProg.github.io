@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tshirt9</title>
+<title>tshirt</title>
 <style>
   /* Styl dla model-viewer z proporcjami 16:9 */
   model-viewer {
@@ -65,7 +65,8 @@ if (modelViewerTexture1) {
     const createAndApplyTexture = async (channel, event) => {
       const texture = await modelViewerTexture1.createTexture(event.target.value);
       if (channel.includes('base')) {
-        material[channel].setTexture(texture);    
+        material[channel].setTexture(texture);
+      }
     };
 
     document.querySelector('#diffuse').addEventListener('input', (event) => {
