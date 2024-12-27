@@ -62,7 +62,7 @@ const modelViewer = document.querySelector("model-viewer#helmet");
 
 if (modelViewer) {
   modelViewer.addEventListener("load", () => {
-    const scene = new THREE.Scene(); // modelViewer.scene; // Access the 3D scene
+    const scene = modelViewer.scene; // Correctly access the 3D scene from modelViewer
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
