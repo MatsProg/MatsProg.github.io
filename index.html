@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tshirt21</title>
+<title>tshirt222</title>
 <style>
   /* Styl dla model-viewer z proporcjami 16:9 */
   model-viewer {
@@ -100,7 +100,7 @@ if (modelViewer) {
         const point = intersect.point; // Intersection point
 
         // Create a decal or texture at the intersection point
-        const decalTexture = new THREE.TextureLoader().load('../../assets/decal.png'); // Replace with your decal texture
+        const decalTexture = new THREE.TextureLoader().load('../../assets/backgroundAR.png'); // Replace with your decal texture
         const decalMaterial = new THREE.MeshBasicMaterial({ map: decalTexture, transparent: true });
         const decalGeometry = new THREE.PlaneGeometry(0.1, 0.1); // Adjust size as needed
         const decal = new THREE.Mesh(decalGeometry, decalMaterial);
