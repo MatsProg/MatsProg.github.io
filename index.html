@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tshirt4</title>
+<title>tshirt</title>
 <style>
   /* Styl dla model-viewer z proporcjami 16:9 */
   model-viewer {
@@ -51,7 +51,7 @@
         <option value="../../assets/models/tshirt.png">tshirt1</option>
         <option value="../../assets/models/tshirt1.png">tshirt2</option>
       </select>
-    </div>    
+    </div>      
   </div>
 </model-viewer>
 
@@ -64,14 +64,20 @@ if (modelViewerTexture1) {
 
     const createAndApplyTexture = async (channel, event) => {
       const texture = await modelViewerTexture1.createTexture(event.target.value);
-      if (channel.includes('base')){
+      if (channel.includes('base') || channel.includes('metallic')) {
+        material.pbrMetallicRoughness[channel].setTexture(texture);
+      } else {
         material[channel].setTexture(texture);
-      } 
+      }
     };
 
     document.querySelector('#diffuse').addEventListener('input', (event) => {
       createAndApplyTexture('baseColorTexture', event);
-    });    
+    });
+
+    document.querySelector('#metallicRoughness').addEventListener('input', (event) => {
+      createAndApplyTexture('metallicRoughnessTexture', event);
+    });
   });
 } else {
   console.error("model-viewer element not found");
