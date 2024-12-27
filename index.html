@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tshirt2</title>
+<title>tshirt21</title>
 <style>
   /* Styl dla model-viewer z proporcjami 16:9 */
   model-viewer {
     width: 100vw; /* 100% szerokości okna */
     height: 100vh; /* 100% wysokości okna przeglądarki */
-    /* aspect-ratio: 16 / 9; */ /* Proporcje szerokości do wysokości */
     display: block;
   }
 
@@ -57,14 +56,21 @@
 </model-viewer>
 
 <script type="module">
-const modelViewerTexture1 = document.querySelector("model-viewer#helmet");
+import * as THREE from 'three';
 
-if (modelViewerTexture1) {
-  modelViewerTexture1.addEventListener("load", () => {
-    const material = modelViewerTexture1.model.materials[0];
+const modelViewer = document.querySelector("model-viewer#helmet");
 
+if (modelViewer) {
+  modelViewer.addEventListener("load", () => {
+    const scene = modelViewer.scene; // Access the 3D scene
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    const material = modelViewer.model.materials[0];
+
+    // Function to create and apply textures from dropdown
     const createAndApplyTexture = async (channel, event) => {
-      const texture = await modelViewerTexture1.createTexture(event.target.value);
+      const texture = await modelViewer.createTexture(event.target.value);
       if (channel.includes('base') || channel.includes('metallic')) {
         material.pbrMetallicRoughness[channel].setTexture(texture);
       } else {
@@ -72,57 +78,43 @@ if (modelViewerTexture1) {
       }
     };
 
+    // Add event listener for dropdown texture changes
     document.querySelector('#diffuse').addEventListener('input', (event) => {
       createAndApplyTexture('baseColorTexture', event);
     });
 
-    document.querySelector('#metallicRoughness').addEventListener('input', (event) => {
-      createAndApplyTexture('metallicRoughnessTexture', event);
+    // Add click event listener for placing decals
+    modelViewer.addEventListener('click', (event) => {
+      // Convert mouse position to normalized device coordinates
+      const rect = modelViewer.getBoundingClientRect();
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+      // Set up the raycaster
+      raycaster.setFromCamera(mouse, scene.getCamera());
+
+      // Check for intersections
+      const intersects = raycaster.intersectObject(scene, true);
+      if (intersects.length > 0) {
+        const intersect = intersects[0];
+        const point = intersect.point; // Intersection point
+
+        // Create a decal or texture at the intersection point
+        const decalTexture = new THREE.TextureLoader().load('../../assets/decal.png'); // Replace with your decal texture
+        const decalMaterial = new THREE.MeshBasicMaterial({ map: decalTexture, transparent: true });
+        const decalGeometry = new THREE.PlaneGeometry(0.1, 0.1); // Adjust size as needed
+        const decal = new THREE.Mesh(decalGeometry, decalMaterial);
+
+        // Position the decal at the intersection point
+        decal.position.copy(point);
+        decal.lookAt(intersect.face.normal.clone().add(point)); // Align with the surface normal
+        scene.add(decal);
+      }
     });
   });
 } else {
   console.error("model-viewer element not found");
 }
 </script>
-
-<script type="module">
-    const modelViewer = document.querySelector("model-viewer#helmet");
-
-    modelViewer.addEventListener('load', () => {
-      const scene = modelViewer.scene; // Access the 3D scene
-      const raycaster = new THREE.Raycaster();
-      const mouse = new THREE.Vector2();
-
-      // Add a click event listener
-      modelViewer.addEventListener('click', (event) => {
-        // Convert mouse position to normalized device coordinates
-        const rect = modelViewer.getBoundingClientRect();
-        mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-        mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-        // Set up the raycaster
-        raycaster.setFromCamera(mouse, scene.getCamera());
-
-        // Check for intersections
-        const intersects = raycaster.intersectObject(scene, true);
-        if (intersects.length > 0) {
-          const intersect = intersects[0];
-          const point = intersect.point; // Intersection point
-
-          // Create a decal or texture at the intersection point
-          const decalTexture = new THREE.TextureLoader().load('../../assets/backgroundAR.png');
-          const decalMaterial = new THREE.MeshBasicMaterial({ map: decalTexture, transparent: true });
-          const decalGeometry = new THREE.PlaneGeometry(0.1, 0.1); // Adjust size as needed
-          const decal = new THREE.Mesh(decalGeometry, decalMaterial);
-
-          // Position the decal at the intersection point
-          decal.position.copy(point);
-          decal.lookAt(intersect.face.normal.clone().add(point)); // Align with the surface normal
-          scene.add(decal);
-        }
-      });
-    });
-  </script>
-
 </body>
 </html>
