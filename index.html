@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tshirt</title>
+<title>tshirt9</title>
 <style>
   /* Styl dla model-viewer z proporcjami 16:9 */
   model-viewer {
@@ -51,14 +51,30 @@
         <option value="../../assets/models/tshirt.png">tshirt1</option>
         <option value="../../assets/models/tshirt1.png">tshirt2</option>
       </select>
-    </div>   
+    </div>  
   </div>
 </model-viewer>
 
 <script type="module">
 const modelViewerTexture1 = document.querySelector("model-viewer#helmet");
 
+if (modelViewerTexture1) {
+  modelViewerTexture1.addEventListener("load", () => {
+    const material = modelViewerTexture1.model.materials[0];
 
+    const createAndApplyTexture = async (channel, event) => {
+      const texture = await modelViewerTexture1.createTexture(event.target.value);
+      if (channel.includes('base')) {
+        material[channel].setTexture(texture);    
+    };
+
+    document.querySelector('#diffuse').addEventListener('input', (event) => {
+      createAndApplyTexture('baseColorTexture', event);
+    });
+  });
+} else {
+  console.error("model-viewer element not found");
+}
 </script>
 
 </body>
